@@ -156,6 +156,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-构建镜像时软件下载问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/">构建镜像时软件下载问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-15T06:37:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。</p>
+<p>例如apt下载软件</p>
+<p><img src="image-20200515144215808.png" alt="image-20200515144215808"></p>
+<p>原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。</p>
+<p>因此在构建镜像的时候，需要替换apt源。推荐以下做法</p>
+<p><img src="image-20200515144817218.png" alt="image-20200515144817218"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Apache-Pulsar鲲鹏服务器迁移" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -587,6 +666,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
             
             <div class="clearfix"></div>
