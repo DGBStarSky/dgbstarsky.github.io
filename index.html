@@ -156,6 +156,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-configMap挂载读写文件问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/configMap%E6%8C%82%E8%BD%BD%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/">configMap挂载读写文件问题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/19/configMap%E6%8C%82%E8%BD%BD%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-05-19T11:09:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        通常情况下configMap用来挂载配置文件，配置文件以只读的权限挂载在pod中。但有时候容器需要对配置文件进行写操作，这个时候采用configMap挂载配置文件就会出现问题。碰到这种情况该怎么办？</p>
+<p>​        可以先将configMap挂载在其他地方或者挂载到目标目录的不同文件上，然后在容器启动命令中加入复制命令，把挂载的文件复制过去，这样容器就能对配置文件执行读写操作。以pulsar的broker.conf为例，操作如下：</p>
+<p>​       首先将broker.conf挂载到broker pod中，以brokers.conf文件挂载。</p>
+<img src="/2020/05/19/configMap%E6%8C%82%E8%BD%BD%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/image-20200519205454899.png" class="">
+
+<p>​      然后在容器启动命令中复制文件</p>
+<img src="/2020/05/19/configMap%E6%8C%82%E8%BD%BD%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/image-20200519205631463.png" class="">
+
+<p>​       注意这里如果使用mv命令会报错，因为brokers.conf文件正在挂载中，不能对文件操作。</p>
+<p>以上就完成了读写配置文件挂载。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">k8s、configMap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/configMap%E6%8C%82%E8%BD%BD%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-arm64服务器构建镜像碰到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -176,11 +259,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="image-20200515145811991.png" alt="image-20200515145811991"></p>
+        <img src="/2020/05/15/arm64%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20200515145811991.png" class="">
+
 <p>如果在arm架构的服务器上构建镜像的过程中出现如上问题，有可能是源镜像是amd64版本导致的。</p>
 <p>可以通过docker inspect xxx查看镜像的信息。</p>
-<p><img src="image-20200515150119930.png" alt="image-20200515150119930"></p>
-
+<img src="/2020/05/15/arm64%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20200515150119930.png" class="">
       
 
       
@@ -255,6 +338,8 @@
       
         <p>有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。</p>
 <p>例如apt下载软件</p>
+<img class="-20200515144215808">
+
 <p><img src="image-20200515144215808.png" alt="image-20200515144215808"></p>
 <p>原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。</p>
 <p>因此在构建镜像的时候，需要替换apt源。推荐以下做法</p>
@@ -336,13 +421,16 @@
 <p>Pulsar迁移分为两种，一种是单机版迁移，一种是镜像迁移。</p>
 <p>一、单机版迁移</p>
 <p>Pulsar主要是由JAVA语言编写，因此是跨平台的，不需要对Pulsar重新进行编译。直接将pulsar的jar包拷到鲲鹏服务器，通过命令启动即可。启动过程中发现报错如下：</p>
-<p><img src="75b10574333120fb26c5aa160e447f5.png" alt="image-20200515102650537"></p>
+<img src="/2020/05/15/Apache-Pulsar%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/75b10574333120fb26c5aa160e447f5.png" class="">
+
 <p>原因是该jar包不支持arm环境，解决办法是找到支持arm环境的jar包进行替换。</p>
 <p><a href="https://github.com/facebook/rocksdb/issues/5559" target="_blank" rel="noopener">https://github.com/facebook/rocksdb/issues/5559</a></p>
 <p>另外，在我们的PAAS平台中使用到了pulsar sql的功能，pulsar sql依赖于presto引擎，因此需要将presto包移植到鲲鹏服务器。使用过程中发现sql-worker无法启动，提示如下：</p>
-<p><img src="image-20200515103439091.png" alt="image-20200515103439091"></p>
+<img src="/2020/05/15/Apache-Pulsar%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/image-20200515103439091.png" class="">
+
 <p>可见presto不支持arm环境，分析源代码发现启动过程中会判断当前环境，</p>
-<p><img src="image-20200515103601225.png" alt="image-20200515103601225"></p>
+<img src="/2020/05/15/Apache-Pulsar%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/image-20200515103601225.png" class="">
+
 <p>修改源代码，跳过环境校验过程，重新编译presto后即可使用。</p>
         
           <a class="article-more-a" href="/2020/05/15/Apache-Pulsar%E9%B2%B2%E9%B9%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%81%E7%A7%BB/#more">more >></a>
@@ -747,6 +835,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s、configMap</a>
               </li>
             
             <div class="clearfix"></div>

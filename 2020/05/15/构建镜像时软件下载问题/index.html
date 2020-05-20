@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>构建镜像时软件下载问题 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。 例如apt下载软件  原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。 因此在构建镜像的时候，需要替换apt源。推荐以下做法">
+  <meta name="description" content="有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。 例如apt下载软件    原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。 因此在构建镜像的时候，需要替换apt源。推荐以下做法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建镜像时软件下载问题">
 <meta property="og:url" content="http://yoursite.com/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。 例如apt下载软件  原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。 因此在构建镜像的时候，需要替换apt源。推荐以下做法">
+<meta property="og:description" content="有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。 例如apt下载软件    原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。 因此在构建镜像的时候，需要替换apt源。推荐以下做法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/image-20200515144215808.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/15/%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E6%97%B6%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98/image-20200515144817218.png">
 <meta property="article:published_time" content="2020-05-15T06:37:24.000Z">
-<meta property="article:modified_time" content="2020-05-15T06:51:47.357Z">
+<meta property="article:modified_time" content="2020-05-20T01:45:16.179Z">
 <meta property="article:author" content="段国彬">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -184,6 +184,8 @@
       
         <p>有时候在构建docker镜像的过程中需要下载一些软件，可能会碰到软件下载不下来的问题。</p>
 <p>例如apt下载软件</p>
+<img class="-20200515144215808">
+
 <p><img src="image-20200515144215808.png" alt="image-20200515144215808"></p>
 <p>原因是一般官方镜像的apt源采用的ubuntu源，会遇到网络问题。</p>
 <p>因此在构建镜像的时候，需要替换apt源。推荐以下做法</p>
@@ -442,6 +444,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s、configMap</a>
               </li>
             
             <div class="clearfix"></div>
